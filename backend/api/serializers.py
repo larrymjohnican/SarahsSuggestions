@@ -22,7 +22,7 @@ class UserSerializer(serializers.ModelSerializer):
         return user #returns the user
 
 # Note Serializer
-class NoteSerializer(serializer.ModelSerializer):
+class NoteSerializer(serializers.ModelSerializer):
     class Meta:
         model = Note # Specifies the Note model to be used
         fields = ["id", "title", "content", "created_at", "author"] # List of fields to include in the serialized data

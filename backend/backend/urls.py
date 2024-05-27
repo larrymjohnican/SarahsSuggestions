@@ -22,4 +22,6 @@ urlpatterns = [
     # This URL pattern includes the built-in Django REST Framework URLs for
     # browsable API and login/logout views
     path("api-auth/", include("rest_framework.urls")),
+
+    path("api/", include("api.urls")),
 ]
