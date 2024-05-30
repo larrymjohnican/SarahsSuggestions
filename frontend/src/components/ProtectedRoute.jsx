@@ -3,9 +3,6 @@ import {jwtDecode} from "jwt-decode" // Importing the jwtDecode function from jw
 import api from "../api" // Importing the api module from ../api
 import {REFRESH_TOKEN, ACCESS_TOKEN} from "../constants" // Importing constants REFRESH_TOKEN and ACCESS_TOKEN from ../constants
 import { useState, useEffect } from "react";
-import {
-    set
-} from "../../../env/lib/python3.12/site-packages/django/contrib/admin/static/admin/js/vendor/xregexp/xregexp.js"; //Importing usestate and useeffect component from react
 
 function ProtectedRoute({children}) {
     const [isAuthorized, setIsAuthorized] = useState(null)// State variable to keep track of authorization status
