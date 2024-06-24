@@ -1,0 +1,218 @@
+### 1. `useState`
+
+- **Purpose**: To add state to a functional component.
+- **How it works**: You call `useState` with the initial state, and it returns an array with the current state and a function to update it.
+
+**Example**:
+```jsx
+import React, { useState } from 'react';
+
+function Counter() {
+  // Declare a state variable `count` and a function to update it `setCount`
+  const [count, setCount] = useState(0);
+
+  return (
+    <div>
+      <p>You clicked {count} times</p>
+      <button onClick={() => setCount(count + 1)}>
+        Click me
+      </button>
+    </div>
+  );
+}
+```
+**Explanation**:
+- `useState(0)` initializes `count` to 0.
+- `setCount` updates the `count` state variable.
+- When the button is clicked, `setCount` increments `count` by 1, causing the component to re-render and display the new count.
+
+### 2. `useEffect`
+
+- **Purpose**: To perform side effects in function components (like fetching data, setting up subscriptions).
+- **How it works**: You call `useEffect` with a function that contains the side effect code. This function runs after every render by default. You can control when it runs by passing a dependency array.
+
+**Example**:
+```jsx
+import React, { useEffect, useState } from 'react';
+
+function Example() {
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    // This code runs after every render
+    document.title = `You clicked ${count} times`;
+  }, [count]); // Only re-run the effect if count changes
+
+  return (
+    <div>
+      <p>You clicked {count} times</p>
+      <button onClick={() => setCount(count + 1)}>
+        Click me
+      </button>
+    </div>
+  );
+}
+```
+**Explanation**:
+- `useEffect` runs the function after every render by default.
+- The second argument `[count]` makes it run only when `count` changes.
+- It updates the document title with the current count.
+
+### 3. `useContext`
+
+- **Purpose**: To access the context value in a function component.
+- **How it works**: You call `useContext` with the context you want to access.
+
+**Example**:
+```jsx
+import React, { useContext } from 'react';
+import { ThemeContext } from './ThemeContext';
+
+function ThemedButton() {
+  const theme = useContext(ThemeContext);
+
+  return (
+    <button style={{ background: theme.background, color: theme.foreground }}>
+      I am styled by theme context!
+    </button>
+  );
+}
+```
+**Explanation**:
+- `useContext(ThemeContext)` gives you access to the current theme value.
+- The button's styles are dynamically set based on the theme context.
+
+### 4. `useReducer`
+
+- **Purpose**: To manage complex state logic in a function component.
+- **How it works**: You call `useReducer` with a reducer function and an initial state. It returns the current state and a dispatch function.
+
+**Example**:
+```jsx
+import React, { useReducer } from 'react';
+
+const initialState = { count: 0 };
+
+function reducer(state, action) {
+  switch (action.type) {
+    case 'increment':
+      return { count: state.count + 1 };
+    case 'decrement':
+      return { count: state.count - 1 };
+    default:
+      throw new Error();
+  }
+}
+
+function Counter() {
+  const [state, dispatch] = useReducer(reducer, initialState);
+
+  return (
+    <div>
+      <p>Count: {state.count}</p>
+      <button onClick={() => dispatch({ type: 'increment' })}>+</button>
+      <button onClick={() => dispatch({ type: 'decrement' })}>-</button>
+    </div>
+  );
+}
+```
+**Explanation**:
+- `useReducer` manages the state with a reducer function.
+- `dispatch` is used to send actions to the reducer to update the state.
+
+### 5. `useRef`
+
+- **Purpose**: To persist values between renders or directly access DOM elements.
+- **How it works**: You call `useRef` and it returns a mutable ref object.
+
+**Example**:
+```jsx
+import React, { useRef } from 'react';
+
+function TextInputWithFocusButton() {
+  const inputEl = useRef(null);
+
+  const onButtonClick = () => {
+    // Access the input element and focus it
+    inputEl.current.focus();
+  };
+
+  return (
+    <div>
+      <input ref={inputEl} type="text" />
+      <button onClick={onButtonClick}>Focus the input</button>
+    </div>
+  );
+}
+```
+**Explanation**:
+- `useRef(null)` creates a ref object with an initial value of `null`.
+- `inputEl.current` holds the reference to the input element.
+- `onButtonClick` focuses the input element.
+
+### 6. `useMemo`
+
+- **Purpose**: To memoize a value and only recompute it when dependencies change.
+- **How it works**: You call `useMemo` with a function and a dependency array.
+
+**Example**:
+```jsx
+import React, { useMemo, useState } from 'react';
+
+function ExpensiveCalculationComponent({ num }) {
+  const [multiplier, setMultiplier] = useState(1);
+
+  const result = useMemo(() => {
+    return num * multiplier;
+  }, [num, multiplier]); // Recompute result only when num or multiplier changes
+
+  return (
+    <div>
+      <p>Result: {result}</p>
+      <button onClick={() => setMultiplier(multiplier + 1)}>Increase Multiplier</button>
+    </div>
+  );
+}
+```
+**Explanation**:
+- `useMemo` memoizes `result` and only recomputes it when `num` or `multiplier` changes.
+
+### 7. `useCallback`
+
+- **Purpose**: To return a memoized version of a callback function that only changes if dependencies change.
+- **How it works**: You call `useCallback` with a function and a dependency array.
+
+**Example**:
+```jsx
+import React, { useCallback, useState } from 'react';
+
+function Button({ onClick }) {
+  return <button onClick={onClick}>Click me</button>;
+}
+
+function ParentComponent() {
+  const [count, setCount] = useState(0);
+
+  const handleClick = useCallback(() => {
+    setCount(count + 1);
+  }, [count]); // Only recreate handleClick if count changes
+
+  return (
+    <div>
+      <p>Count: {count}</p>
+      <Button onClick={handleClick} />
+    </div>
+  );
+}
+```
+**Explanation**:
+- `useCallback` memoizes `handleClick` and only recreates it when `count` changes.
+
+Summary
+useState: Manage simple state.
+useEffect: Side effects (e.g., fetching data).
+useContext: Access context values.
+useReducer: Manage complex state logic.
+useRef: Access DOM elements or persist values across renders.
+useMemo: Memoize expensive calculations.
+useCallback: Memoize callback functions to prevent unnecessary re-renders.

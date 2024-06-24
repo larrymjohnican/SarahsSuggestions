@@ -5,6 +5,7 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 // Import custom page components
 import BookSuggestions from "./pages/BookSuggestions";
 import Login from "./pages/Login";
+import Landing from "./pages/Landing";
 import Register from "./pages/Register";
 import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
@@ -42,6 +43,8 @@ function App() {
                         </ProtectedRoute>
                     }
                 />
+                {/* Public route for the landing page */}
+                <Route path="/landing" element={<Landing/>} />
                 {/* Public route for the login page */}
                 <Route path="/login" element={<Login />} />
                 {/* Route for logout, clears local storage and redirects to login */}

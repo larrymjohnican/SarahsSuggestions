@@ -1,7 +1,5 @@
 # SARAHSSUGGESTIONS
 
-A brief one or two-line description of your project.
-
 ## Table of Contents
 
 - [Installation](#installation)
@@ -38,7 +36,7 @@ This will create a new virtual environment named `env` in your project directory
   env\Scripts\activate
   ```
 
-- On Unix or macOS:
+- On Unix or macOS or git bash:
 
   ```
   source bin/activate
@@ -46,8 +44,7 @@ This will create a new virtual environment named `env` in your project directory
 
 You should see `(env)` prefixed to your command prompt, indicating that the virtual environment is active.
 
-4. Install the project dependencies using the following command: `py -m pip install -r requirements.txt`  or....
-
+4. Change to the backend folder: cd backend and install the project dependencies using the following command: 'py -m pip install -r requirements.txt' or 'python3 -m pip install -r requirements.txt'
 This will install all the required packages listed in the `requirements.txt` file.
 
 After completing these steps, you should have all the necessary dependencies installed in your virtual environment, and you're ready to proceed with the next steps!
