@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+import { FaXTwitter, FaFacebookF, FaInstagram, FaYoutube } from "react-icons/fa6";
 import '../styles/Landing.css';
 
 function Landing() {
@@ -9,12 +11,12 @@ function Landing() {
                     <h1 className="header-title">Sarah's Suggestions</h1>
                     <nav className="nav">
                         <ul>
-                            <li>Home</li>
-                            <li>About</li>
-                            <li>Login</li>
-                            <li>Book Suggestions</li>
-                            <li>Book Reviews</li>
-                            <li>Events</li>
+                        <li><Link to="/">Home</Link></li>
+                            <li><Link to="/about">About</Link></li>
+                            <li><Link to="/login">Login</Link></li>
+                            <li><Link to="/book-suggestions">Book Suggestions</Link></li>
+                            <li><Link to="/book-reviews">Book Reviews</Link></li>
+                            <li><Link to="/events">Events</Link></li>
                         </ul>
                     </nav>
                 </div>
@@ -69,6 +71,11 @@ function Landing() {
             {/* Social Media */}
             <section id="social" className="social">
                 <div className="container">
+                    <h3>Follow Us!</h3>
+                    <a href="https://twitter.com"><FaXTwitter size={32} /></a>
+                    <a href="https://facebook.com"><FaFacebookF size={32} /></a>
+                    <a href="https://instagram.com"><FaInstagram size={32} /></a>    
+                    <a href="https://youtube.com"><FaYoutube size={32} /></a>    
 
                 </div>
             </section>

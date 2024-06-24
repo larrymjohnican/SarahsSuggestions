@@ -119,3 +119,32 @@ body {
 .footer p {
     margin: 0;
 }
+
+.social {
+    text-align: center;
+    margin: 2em 0;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 1em;
+}
+
+.social-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 3em;
+    height: 3em;
+    font-size: 1.5em;
+    color: #ffffff;
+    background-color: #555;
+    border-radius: 50%;
+    transition: background-color 0.3s, color 0.3s;
+    text-decoration: none; /* Remove underline */
+}
+
+.social-icon:hover {
+    background-color: #000;
+}
