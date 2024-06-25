@@ -39,7 +39,6 @@ body {
     margin-right: 20px; /* Adjust spacing between list items */
 }
 
-
 .nav a {
     color: white;
     text-decoration: none;
@@ -107,6 +106,29 @@ body {
     text-align: center;
     font-size: 2.5em;
     margin-bottom: 40px;
+}
+
+.about-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.about-content .image {
+    order: 1; /* Ensure image is on the left */
+    flex: 1;
+    padding-right: 20px; /* Adjust as needed */
+}
+
+.about-content .text {
+    order: 2; /* Ensure text is on the right */
+    flex: 2;
+    padding-left: 20px; /* Adjust as needed */
+}
+
+.about-content .image img {
+    max-width: 100%; /* Ensure the image doesn't overflow */
+    height: auto;
 }
 
 .footer {
