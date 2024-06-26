@@ -1,10 +1,13 @@
 import { Link } from 'react-router-dom';
 import { FaXTwitter, FaFacebookF, FaInstagram, FaYoutube } from "react-icons/fa6";
+import { ThemeProvider } from '@material-tailwind/react';
 import '../styles/Landing.css';
 import aboutImage from '../assets/Images/book1.jpg';
+import Navbar from './components/Navigation/Navbar';
 
 function Landing() {
     return (
+        <ThemeProvider> 
         <div className="landing-page">
             {/* Header */}
             <header className="header">
@@ -72,6 +75,7 @@ function Landing() {
                 </div>
             </footer>
         </div>
+    </ThemeProvider>
     );
 }
 
