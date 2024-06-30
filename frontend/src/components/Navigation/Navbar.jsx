@@ -1,47 +1,29 @@
-import React from 'react'
-import Drawer from '@mui/material/Drawer';
-import Toolbar from '@mui/material/Toolbar';
-import List from '@mui/material/List';
-import Divider from '@mui/material/Divider';
-import ListItem from '@mui/material/ListItem';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import { mainNavbarItems } from './consts/navbarItems';
-import { navbarStyles } from './styles';
-import { useNavigate } from "react-router-dom";
+"use client";
 
-const Navbar = () => {
-    const navigate = useNavigate();
+import { Link } from "react-router-dom";
+import { Navbar as FlowbiteNavbar } from "@material-tailwind/react";
 
-    return (
-        <Drawer
-          sx={navbarStyles.drawer}
-          variant="permanent"
-          anchor="left"
-      >
-        <Toolbar />
-        <Divider />
-        <List>
-          {mainNavbarItems.map((item, index) => (
-            <ListItem
-                button
-                key={item.id}
-                onClick={() => navigate(item.route)}
-            >
-              <ListItemIcon
-                sx={navbarStyles.icons}
-              >
-                {item.icon}
-              </ListItemIcon>
-              <ListItemText
-                sx={navbarStyles.text}
-                primary={item.label}
-              />
-            </ListItem>
-          ))}
-        </List>
-      </Drawer>
-    );
-};
+export const CustomNavbar = () => {
+  return (
+    <FlowbiteNavbar fluid rounded>
+      <FlowbiteNavbar.Brand as={Link} to="https://flowbite-react.com">
+        <img src="/favicon.svg" className="mr-3 h-6 sm:h-9" alt="Flowbite React Logo" />
+        <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">Flowbite React</span>
+      </FlowbiteNavbar.Brand>
+      <FlowbiteNavbar.Toggle />
+      <FlowbiteNavbar.Collapse>
+        <FlowbiteNavbar.Link to="#" active>
+          Home
+        </FlowbiteNavbar.Link>
+        <FlowbiteNavbar.Link as={Link} to="#">
+          About
+        </FlowbiteNavbar.Link>
+        <FlowbiteNavbar.Link to="#">Services</FlowbiteNavbar.Link>
+        <FlowbiteNavbar.Link to="#">Pricing</FlowbiteNavbar.Link>
+        <FlowbiteNavbar.Link to="#">Contact</FlowbiteNavbar.Link>
+      </FlowbiteNavbar.Collapse>
+    </FlowbiteNavbar>
+  );
+}
 
-export default Navbar
+export default CustomNavbar;

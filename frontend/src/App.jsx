@@ -1,7 +1,8 @@
 // Import necessary libraries and components
 import React from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import Navbar from './components/Navigation/Navbar';
+import CustomNavbar from "./components/Navigation/Navbar"; // Import CustomNavbar component
+
 
 // Import custom page components
 import BookSuggestions from "./pages/BookSuggestions";
@@ -33,7 +34,8 @@ function App() {
     return (
         // Use BrowserRouter to enable client-side routing
         <BrowserRouter>
-        <Navbar />
+            {/* Include CustomNavbar here */}
+            <CustomNavbar />
             {/* Define the application's routes */}
             <Routes>
                 {/* Protected route for the home page, only accessible to authenticated users */}
