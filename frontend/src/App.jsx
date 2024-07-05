@@ -1,9 +1,6 @@
 // Import necessary libraries and components
 import React from "react";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import CustomNavbar from "./components/Navigation/Navbar"; // Import CustomNavbar component
-
-
+import { Routes, Route, Navigate } from "react-router-dom";
 // Import custom page components
 import BookSuggestions from "./pages/BookSuggestions";
 import Login from "./pages/Login";
@@ -32,10 +29,7 @@ function RegisterAndLogout() {
 // Main application component
 function App() {
     return (
-        // Use BrowserRouter to enable client-side routing
-        <BrowserRouter>
-            {/* Include CustomNavbar here */}
-            <CustomNavbar />
+        <>
             {/* Define the application's routes */}
             <Routes>
                 {/* Protected route for the home page, only accessible to authenticated users */}
@@ -48,7 +42,7 @@ function App() {
                     }
                 />
                 {/* Public route for the landing page */}
-                <Route path="/landing" element={<Landing/>} />
+                <Route path="/landing" element={<Landing />} />
                 {/* Public route for the login page */}
                 <Route path="/login" element={<Login />} />
                 {/* Route for logout, clears local storage and redirects to login */}
@@ -58,9 +52,9 @@ function App() {
                 {/* Public route for book suggestions */}
                 <Route path="/suggestions" element={<BookSuggestions />} />
                 {/* Catch-all route for undefined routes, shows the NotFound page */}
-                <Route path="*" element={<NotFound />}></Route>
+                <Route path="*" element={<NotFound />} />
             </Routes>
-        </BrowserRouter>
+        </>
     );
 }
 

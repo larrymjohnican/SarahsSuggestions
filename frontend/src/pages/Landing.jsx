@@ -1,29 +1,9 @@
 import { Link } from 'react-router-dom';
 import { FaXTwitter, FaFacebookF, FaInstagram, FaYoutube } from "react-icons/fa6";
-import '../styles/Landing.css';
-import aboutImage from '../assets/Images/book1.jpg';
 
 function Landing() {
     return (
-        <ThemeProvider> 
         <div className="landing-page">
-            {/* Header */}
-            <header className="header">
-                <div className="container">
-                    <h1 className="header-title">Sarah's Suggestions</h1>
-                    <nav className="nav">
-                        <ul>
-                            <li><Link to="/">Home</Link></li>
-                            <li><Link to="/about">About</Link></li>
-                            <li><Link to="/login">Login</Link></li>
-                            <li><Link to="/book-suggestions">Book Suggestions</Link></li>
-                            <li><Link to="/book-reviews">Book Reviews</Link></li>
-                            <li><Link to="/events">Events</Link></li>
-                        </ul>
-                    </nav>
-                </div>
-            </header>
-
             {/* Hero Section */}
             <section className="hero">
                 <div className="container">
@@ -48,21 +28,7 @@ function Landing() {
                                 Dive into our curated content, engage in thought-provoking conversations, and discover your next great read here at Sarah's Suggestions.
                             </p>
                         </div>
-                        <div className="image">
-                            <img src={aboutImage} alt="About Us Image" />
-                        </div>
                     </div>
-                </div>
-            </section>
-
-            {/* Social Media */}
-            <section id="social" className="social">
-                <div className="container">
-                    <h3>Follow Us!</h3>
-                    <a href="https://twitter.com"><FaXTwitter size={32} /></a>
-                    <a href="https://facebook.com"><FaFacebookF size={32} /></a>
-                    <a href="https://instagram.com"><FaInstagram size={32} /></a>    
-                    <a href="https://youtube.com"><FaYoutube size={32} /></a>    
                 </div>
             </section>
 
@@ -73,7 +39,6 @@ function Landing() {
                 </div>
             </footer>
         </div>
-    </ThemeProvider>
     );
 }
 
