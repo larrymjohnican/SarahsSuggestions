@@ -4,6 +4,8 @@
 import { Footer } from "flowbite-react";
 import { BsDribbble, BsFacebook, BsGithub, BsInstagram, BsTwitter } from "react-icons/bs";
 import { FooterTheme } from '../themes/FooterTheme'
+import logo from '../assets/logo.png'; // Import the logo
+
 
 export const CustomFooter = () => {
   return (
@@ -13,9 +15,9 @@ export const CustomFooter = () => {
           <div>
             <Footer.Brand
               href="https://flowbite.com"
-              src="https://flowbite.com/docs/images/logo.svg"
-              alt="Flowbite Logo"
-              name="Flowbite"
+              src={logo}
+              alt="SS Logo"
+              name="Sarah's Suggestions!"
             />
           </div>
           <div className="grid grid-cols-2 gap-8 sm:mt-4 sm:grid-cols-3 sm:gap-6">
