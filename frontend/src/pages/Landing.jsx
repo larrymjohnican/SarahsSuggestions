@@ -1,21 +1,20 @@
 import { Link } from 'react-router-dom';
-import { FaXTwitter, FaFacebookF, FaInstagram, FaYoutube } from "react-icons/fa6";
 
 function Landing() {
     return (
         <div className="landing-page">
             {/* Hero Section */}
-            <section className="hero">
-                <div className="container">
-                    <h2 className="hero-title">Welcome to Sarah's Suggestions</h2>
-                    <p className="hero-subtitle">I'm Sarah, a lifelong book lover with a passion for discovering and sharing captivating reads across all genres.
+            <section className="hero bg-blue-500">
+                <div className="container mx-auto px-4">
+                    <h2 className="hero-title text-4xl font-bold mb-4">Welcome to Sarah's Suggestions</h2>
+                    <p className="hero-subtitle text-lg">I'm Sarah, a lifelong book lover with a passion for discovering and sharing captivating reads across all genres.
                         Whether you're fiction, non-fiction, or something in between, my blog is here to guide you to your next great book.
                         Join me on this literary adventure, and let's explore the world of books together!</p>
                 </div>
             </section>
 
             {/* About Section */}
-            <section id="about" className="about">
+            <section id="about" className="about bg-gray-100 py-12">
                 <div className="container">
                     <h2>About Us</h2>
                     <div className="about-content">
