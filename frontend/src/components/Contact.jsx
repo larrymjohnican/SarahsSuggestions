@@ -35,13 +35,8 @@ export function CustomContact({ isOpen, onClose }) {
               </Button>
             </div>
             <p className="mb-2 text-sm text-gray-500 dark:text-gray-400">
-              <a href="mailto:info@company.com" className="hover:underline">
-                info@company.com
-              </a>
-            </p>
-            <p className="text-sm text-gray-500 dark:text-gray-400">
-              <a href="tel:2124567890" className="hover:underline">
-                212-456-7890
+              <a href="mailto:sarahssuggestions@gmail.com" className="hover:underline">
+                sarahssuggestions@gmail.com
               </a>
             </p>
           </form>
