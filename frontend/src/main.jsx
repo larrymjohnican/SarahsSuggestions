@@ -4,6 +4,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import App from './App.jsx'
 import './index.css'
 import CustomNavbar from './components/Navigation/Navbar';
+import CustomFooter from './components/Footer';
 
 
 
@@ -12,6 +13,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <Router>
     <CustomNavbar />
     <App />
+    <CustomFooter />
     </Router>
   </React.StrictMode>,
 );

@@ -1,10 +1,13 @@
-import { Link } from 'react-router-dom';
+"use client";
+
+import { Card } from "flowbite-react";
+
 
 function Landing() {
     return (
-        <div className="flex flex-col min-h-screen bg-green-400"> {/* Ensure the page fills the screen height */}
+        <div className="bg-green-400  h-screen flex flex-col "> {/* Ensure the page fills the screen height */}
             {/* Hero Section */}
-            <section className="hero">
+            <section className=" flex flex-col hero">
                 <div className="container mx-auto px-4 py-8">
                     <h2 className="hero-title text-4xl font-bold mb-4">Welcome to Sarah's Suggestions</h2>
                     <p className="hero-subtitle text-lg">
@@ -14,9 +17,16 @@ function Landing() {
                     </p>
                 </div>
             </section>
+            {/*img section*/}
+            <section id="bookimg" className="flex hero">
+                <div className="container mx-auto ">
+                    <Card className="max-w-sm" imgSrc="/images/blog/image-4.jpg" >
+                    </Card>
+                </div>
+            </section>
 
             {/* About Section */}
-            <section id="about" className="about">
+            <section id="about" className="flex-1 about">
                 <div className="container mx-auto px-4 py-8">
                     <h2 className="text-2xl font-bold">About Us</h2>
                     <div className="about-content mt-4">
@@ -30,13 +40,6 @@ function Landing() {
                     </div>
                 </div>
             </section>
-
-            {/* Footer */}
-            <footer className="bg-gray-800 text-white py-4">
-                <div className="container mx-auto px-4">
-                    <p>&copy; 2024 My Website. All rights reserved.</p>
-                </div>
-            </footer>
         </div>
     );
 }
