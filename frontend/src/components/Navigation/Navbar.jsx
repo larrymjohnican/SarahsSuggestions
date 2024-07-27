@@ -24,6 +24,7 @@ export const CustomNavbar = () => {
           <Navbar.Link href="#">Home</Navbar.Link>
           <Navbar.Link href="#">About</Navbar.Link>
           <Navbar.Link href="/suggestions">Suggestions</Navbar.Link>
+          <Navbar.Link href="/reviews">Reviews</Navbar.Link>
           <Navbar.Link href="/login">Login</Navbar.Link>
           <Navbar.Link onClick={handleContactClick}>Contact</Navbar.Link>
         </Navbar.Collapse>
