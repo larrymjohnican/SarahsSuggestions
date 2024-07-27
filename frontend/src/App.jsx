@@ -6,9 +6,11 @@ import BookSuggestions from "./pages/BookSuggestions";
 import Login from "./pages/Login";
 import Landing from "./pages/Landing";
 import Register from "./pages/Register";
+import Reviews from "./pages/Reviews";
 import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
 import ProtectedRoute from "./components/ProtectedRoute";
+
 
 // Component to handle user logout
 function Logout() {
@@ -49,6 +51,8 @@ function App() {
                 <Route path="/logout" element={<Logout />} />
                 {/* Route for register, clears local storage before showing register form */}
                 <Route path="/register" element={<RegisterAndLogout />} />
+                {/* Public route for book reviews */}
+                <Route path="/reviews" element={<Reviews />} />
                 {/* Public route for book suggestions */}
                 <Route path="/suggestions" element={<BookSuggestions />} />
                 {/* Catch-all route for undefined routes, shows the NotFound page */}
