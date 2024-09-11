@@ -8,6 +8,7 @@
   },
   "private": true,
   "dependencies": {
+    "flowbite-react": "^0.10.1",
     "react-router-dom": "^6.23.1"
   }
 }
