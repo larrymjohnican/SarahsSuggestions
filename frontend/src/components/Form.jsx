@@ -5,6 +5,10 @@ import { ACCESS_TOKEN, REFRESH_TOKEN } from "../constants"; // Import constants 
 import "../styles/Form.css" // Import CSS styles
 import LoadingIndicator from "./LoadingIndicator"; // Import loading indicator component
 
+"use client";
+
+import { Button, Card, Checkbox, Label, TextInput } from "flowbite-react";
+
 // Define the Form component
 function Form({ route, method }) {
     // State variables
@@ -43,27 +47,44 @@ function Form({ route, method }) {
 
     // Render the form
     return (
-        <form onSubmit={handleSubmit} className="form-container">
-            <h1>{name}</h1> {/* Display form name (Login or Register) */}
-            <input
-                className="form-input"
-                type="text"
-                value={username}
-                onChange={(e) => setUsername(e.target.value)} // Update username state
-                placeholder="Username"
-            />
-            <input
-                className="form-input"
-                type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)} // Update password state
-                placeholder="Password"
-            />
-            {loading && <LoadingIndicator />} {/* Show loading indicator if loading */}
-            <button className="form-button" type="submit">
-                {name} {/* Display form name (Login or Register) */}
-            </button>
-        </form>
+        <div className="flex items-center justify-center min-h-screen bg-gray-100">
+            <Card className="flex flex-col max-w-sm w-full">
+                <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
+                    <div>
+                        <div className="mb-2 block">
+                            <Label htmlFor="email1" value="Your email"/>
+                        </div>
+                        <TextInput
+                            id="email1"
+                            type="email"
+                            placeholder="name@flowbite.com"
+                            required
+                            value={username}
+                            onChange={(e) => setUsername(e.target.value)}
+                        />
+                    </div>
+                    <div>
+                        <div className="mb-2 block">
+                            <Label htmlFor="password1" value="Your password"/>
+                        </div>
+                        <TextInput
+                            id="password1"
+                            type="password"
+                            required
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                        />
+                    </div>
+                    <div className="flex items-center gap-2">
+                        <Checkbox id="remember"/>
+                        <Label htmlFor="remember">Remember me</Label>
+                    </div>
+                    <Button type="submit" disabled={loading}>
+                        {loading ? <LoadingIndicator/> : "Submit"}
+                    </Button>
+                </form>
+            </Card>
+        </div>
     );
 }
 
