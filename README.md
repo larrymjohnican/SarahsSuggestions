@@ -1,75 +1,124 @@
-# SARAHSSUGGESTIONS
+# 🌸 Sarah's Suggestions
 
-## Table of Contents
+A cozy book review and recommendation site built for readers who love a good story.
 
-- [Installation](#installation)
-- [Usage](#usage)
-- [Contributing](#contributing)
-- [License](#license)
+**Live site:** [sarahssuggestions.com](https://sarahssuggestions.com)
 
-## Installation
+---
 
-### Cloning the Repository
+## What It Does
 
-To get started with this project, you'll need to clone the repository to your local machine. Follow these steps:
+- Browse curated book recommendations with cover art, ratings, and reviews
+- Filter books by genre
+- Create an account and log in with email verification
+- Affiliate links to Amazon and Bookshop.org
 
-1. Open a terminal or command prompt.
-2. Navigate to the directory where you want to clone the repository using the `cd` command.
-3. Run the following command to clone the repository: git clone https://github.com/larrymjohnican/SarahsSuggestions.git
-4. Once the cloning process is complete, navigate into the project directory: cd the-name-of-your-repository
+---
 
-Now you have the project files on your local machine and are ready to proceed with the next installation steps!
+## Tech Stack
 
-### Installing Dependencies
+| Layer | Tech |
+|-------|------|
+| Frontend | React + Vite + Tailwind CSS |
+| Backend | Node.js + Express |
+| Database | MongoDB Atlas |
+| Auth | JWT (access + refresh tokens) + email verification |
+| Email | Resend API |
+| Hosting | Vercel (frontend + backend) |
+| Domain | Porkbun → sarahssuggestions.com |
 
-After cloning the repository, you'll need to install the project dependencies. Follow these steps:
+---
 
-1. Navigate to the project directory if you're not already there: cd the-name-of-your-repository
-2. It's recommended to create and activate a virtual environment before installing the dependencies. You can create a virtual environment using the following command: python -m venv env
-This will create a new virtual environment named `env` in your project directory.
+## Project Structure
 
-3. Activate the virtual environment:
+```
+SarahsSuggestions/
+├── frontend/          # React app (Vite)
+│   ├── src/
+│   │   ├── components/   # Navbar, BookCard, Footer, etc.
+│   │   ├── pages/        # Landing, Home, BookSuggestions, Reviews, Verify
+│   │   ├── data/         # books.js (book data)
+│   │   └── assets/       # logo.svg
+│   └── vercel.json
+│
+└── backend/           # Express API
+    ├── models/        # User.js, Note.js
+    ├── routes/        # auth.js, notes.js
+    ├── middleware/    # auth.js (JWT verification)
+    ├── server.js
+    └── vercel.json
+```
 
-- On Windows:
+---
 
-  ```
-  env\Scripts\activate
-  ```
+## Local Development
 
-- On Unix or macOS or git bash:
+### Prerequisites
+- Node.js 18+
+- MongoDB Atlas account (or local MongoDB)
 
-  ```
-  source bin/activate
-  ```
+### Backend
 
-You should see `(env)` prefixed to your command prompt, indicating that the virtual environment is active.
+```bash
+cd backend
+npm install
+```
 
-4. Change to the backend folder: cd backend and install the project dependencies using the following command: 'py -m pip install -r requirements.txt' or 'python3 -m pip install -r requirements.txt'
-This will install all the required packages listed in the `requirements.txt` file.
+Create a `.env` file:
+```env
+MONGO_URI=your_mongodb_connection_string
+JWT_SECRET=your_jwt_secret
+JWT_REFRESH_SECRET=your_refresh_secret
+RESEND_API_KEY=your_resend_api_key
+PORT=8000
+```
 
-After completing these steps, you should have all the necessary dependencies installed in your virtual environment, and you're ready to proceed with the next steps!
+```bash
+npm start
+```
 
-### ACTIVATING THE SERVER
-3. navigate to the backend folder: cd frontend
+### Frontend
 
-3. Setting up the database (if applicable)
-4. Running any necessary setup scripts: frontend: npm run dev (may need to install vite 'npm install vite')
-                                        backend: py manage.py runserver
+```bash
+cd frontend
+npm install
+npm run dev
+```
 
-## Usage
+---
 
-Explain how to use the project, including any important commands, configuration options, or examples.
+## Environment Variables
 
-## Contributing
+### Backend (set in Vercel)
+| Variable | Description |
+|----------|-------------|
+| `MONGO_URI` | MongoDB Atlas connection string |
+| `JWT_SECRET` | Secret for access tokens |
+| `JWT_REFRESH_SECRET` | Secret for refresh tokens |
+| `RESEND_API_KEY` | Resend API key for verification emails |
 
-If you welcome contributions from others, provide guidelines on how to contribute to your project. This may include:
+### Frontend (`.env.production`)
+| Variable | Description |
+|----------|-------------|
+| `VITE_API_URL` | Backend API URL |
 
-- Opening issues for bug reports or feature requests
-- Submitting pull requests
-- Code style and guidelines
+---
 
-## License
+## Deployment
 
-Specify the license under which your project is released. For example:
+Both frontend and backend are deployed on Vercel under the `larrymjohnicans-projects` team.
 
-This project is licensed under the [MIT License](LICENSE).
+- **Frontend:** https://sarahssuggestions.com
+- **Backend:** https://backend-kappa-blue-53.vercel.app
+
+Pushes to `main` auto-deploy via Vercel's GitHub integration.
+
+---
+
+## Affiliate Disclosure
+
+This site contains Amazon affiliate links. As an Amazon Associate, Sarah earns from qualifying purchases. Affiliate tag: `sarahssugge0e-20`.
+
+---
+
+*Built with 💜 for Sarah.*
