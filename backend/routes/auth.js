@@ -28,20 +28,32 @@ router.post("/user/register/", async (req, res) => {
     return res.status(400).json({ detail: "email and password are required." });
   }
 
+  // Basic input length limits
+  if (email.length > 254 || password.length > 128) {
+    return res.status(400).json({ detail: "Input exceeds maximum length." });
+  }
+
+  // Password strength: min 8 chars, at least one letter and one number
+  if (password.length < 8 || !/[a-zA-Z]/.test(password) || !/[0-9]/.test(password)) {
+    return res.status(400).json({ detail: "Password must be at least 8 characters and include a letter and a number." });
+  }
+
   const normalizedEmail = email.toLowerCase().trim();
   const exists = await User.findOne({ email: normalizedEmail });
   if (exists) {
     return res.status(400).json({ email: ["A user with that email already exists."] });
   }
 
-  const hashed = await bcrypt.hash(password, 10);
+  const hashed = await bcrypt.hash(password, 12);
   const verifyToken = crypto.randomBytes(32).toString("hex");
+  const verifyTokenExpires = new Date(Date.now() + 24 * 60 * 60 * 1000); // 24 hours
 
   const user = await User.create({
     email: normalizedEmail,
     password: hashed,
     verified: false,
     verifyToken,
+    verifyTokenExpires,
   });
 
   // Send verification email
@@ -72,10 +84,13 @@ router.get("/user/verify", async (req, res) => {
   if (!token) return res.status(400).json({ detail: "Token is required." });
 
   const user = await User.findOne({ verifyToken: token });
-  if (!user) return res.status(400).json({ detail: "Invalid or expired verification link." });
+  if (!user || !user.verifyTokenExpires || user.verifyTokenExpires < new Date()) {
+    return res.status(400).json({ detail: "Invalid or expired verification link." });
+  }
 
   user.verified = true;
   user.verifyToken = null;
+  user.verifyTokenExpires = null;
   await user.save();
 
   res.json({ detail: "Email verified successfully. You can now log in." });
