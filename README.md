@@ -1,4 +1,4 @@
-# 🌸 Sarah's Suggestions
+# 📚🌙 Sarah's Suggestions
 
 A cozy book review and recommendation site built for readers who love a good story.
 
