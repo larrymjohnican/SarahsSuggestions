@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+  <!-- Background circle -->
+  <circle cx="50" cy="50" r="48" fill="#0f1729" stroke="#c9a227" stroke-width="2"/>
+
+  <!-- Crescent moon -->
+  <circle cx="50" cy="42" r="22" fill="#c9a227"/>
+  <circle cx="60" cy="36" r="18" fill="#0f1729"/>
+
+  <!-- Stars -->
+  <circle cx="72" cy="28" r="2" fill="#c9a227" opacity="0.9"/>
+  <circle cx="80" cy="42" r="1.5" fill="#c9a227" opacity="0.7"/>
+  <circle cx="68" cy="18" r="1.5" fill="#c9a227" opacity="0.6"/>
+
+  <!-- Open book -->
+  <g transform="translate(50, 72)">
+    <!-- Left page -->
+    <path d="M-18 0 Q-9 -6 0 0 L0 14 Q-9 8 -18 14 Z" fill="#f5f0e8" opacity="0.95"/>
+    <!-- Right page -->
+    <path d="M18 0 Q9 -6 0 0 L0 14 Q9 8 18 14 Z" fill="#f5f0e8" opacity="0.85"/>
+    <!-- Spine -->
+    <line x1="0" y1="0" x2="0" y2="14" stroke="#c9a227" stroke-width="1.5"/>
+    <!-- Page lines left -->
+    <line x1="-14" y1="4" x2="-2" y2="2" stroke="#c9a227" stroke-width="0.6" opacity="0.6"/>
+    <line x1="-14" y1="7" x2="-2" y2="5" stroke="#c9a227" stroke-width="0.6" opacity="0.6"/>
+    <line x1="-14" y1="10" x2="-2" y2="8" stroke="#c9a227" stroke-width="0.6" opacity="0.6"/>
+    <!-- Page lines right -->
+    <line x1="14" y1="4" x2="2" y2="2" stroke="#c9a227" stroke-width="0.6" opacity="0.6"/>
+    <line x1="14" y1="7" x2="2" y2="5" stroke="#c9a227" stroke-width="0.6" opacity="0.6"/>
+    <line x1="14" y1="10" x2="2" y2="8" stroke="#c9a227" stroke-width="0.6" opacity="0.6"/>
+  </g>
+</svg>

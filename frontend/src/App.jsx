@@ -9,6 +9,7 @@ import Register from "./pages/Register";
 import Reviews from "./pages/Reviews";
 import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
+import Verify from "./pages/Verify";
 import ProtectedRoute from "./components/ProtectedRoute";
 
 
@@ -34,17 +35,17 @@ function App() {
         <>
             {/* Define the application's routes */}
             <Routes>
-                {/* Protected route for the home page, only accessible to authenticated users */}
+                {/* Public landing page as homepage */}
+                <Route path="/" element={<Landing />} />
+                {/* Protected dashboard, only accessible to authenticated users */}
                 <Route
-                    path="/"
+                    path="/dashboard"
                     element={
                         <ProtectedRoute>
                             <Home />
                         </ProtectedRoute>
                     }
                 />
-                {/* Public route for the landing page */}
-                <Route path="/landing" element={<Landing />} />
                 {/* Public route for the login page */}
                 <Route path="/login" element={<Login />} />
                 {/* Route for logout, clears local storage and redirects to login */}
@@ -55,6 +56,8 @@ function App() {
                 <Route path="/reviews" element={<Reviews />} />
                 {/* Public route for book suggestions */}
                 <Route path="/suggestions" element={<BookSuggestions />} />
+                {/* Email verification route */}
+                <Route path="/verify" element={<Verify />} />
                 {/* Catch-all route for undefined routes, shows the NotFound page */}
                 <Route path="*" element={<NotFound />} />
             </Routes>

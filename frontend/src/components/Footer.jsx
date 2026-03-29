@@ -25,13 +25,16 @@ export function CustomFooter() {
     return (
         <Footer theme={footerTheme} container>
             <div className="flex w-full flex-col items-center gap-2 sm:flex-row sm:justify-between">
-                <Footer.Copyright href="#" by="Johnican Investments™" year={2024} />
+                <Footer.Copyright href="/" by="Sarah's Suggestions" year={2026} />
                 <Footer.LinkGroup>
-                    <Footer.Link href="#">About</Footer.Link>
-                    <Footer.Link href="#">Privacy Policy</Footer.Link>
-                    <Footer.Link href="#">Licensing</Footer.Link>
+                    <Footer.Link href="/">About</Footer.Link>
+                    <Footer.Link href="/reviews">Reviews</Footer.Link>
+                    <Footer.Link href="/suggestions">Suggestions</Footer.Link>
                 </Footer.LinkGroup>
             </div>
+            <p className="text-center text-xs text-parchment/50 mt-3 font-sans">
+                As an Amazon Associate, Sarah's Suggestions earns from qualifying purchases.
+            </p>
         </Footer>
     );
 }

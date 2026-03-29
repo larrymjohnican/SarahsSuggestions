@@ -13,10 +13,17 @@ html, body {
 }
 
 @layer base {
+    /* Light mode: warm parchment */
     body {
+        background-color: #f5f0e8;
+        color: #1a1a2e;
+        font-family: 'Lora', Georgia, serif;
+    }
+
+    /* Dark mode: cozy navy */
+    .dark body {
         background-color: #0f1729;
         color: #f5f0e8;
-        font-family: 'Lora', Georgia, serif;
     }
 
     h1, h2, h3, h4, h5, h6 {

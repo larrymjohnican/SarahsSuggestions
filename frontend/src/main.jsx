@@ -11,9 +11,9 @@ import CustomFooter from './components/Footer';
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Router>
-    <CustomNavbar />
-    <App />
-    <CustomFooter />
+      <CustomNavbar />
+      <App />
+      <CustomFooter />
     </Router>
   </React.StrictMode>,
 );
