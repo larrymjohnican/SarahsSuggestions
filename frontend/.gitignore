@@ -23,5 +23,11 @@ dist-ssr
 *.sln
 *.sw?
 
+# Environment files - never commit these
 .env
+.env.*
+.env.production
+.env.local
+.env.development
+
 .vercel
