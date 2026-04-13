@@ -1,14 +1,13 @@
 {
   "name": "sarahssuggestions",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "private": true,
   "dependencies": {
-    "flowbite-react": "^0.10.1",
-    "react-router-dom": "^6.23.1"
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^16.4.5",
+    "fast-xml-parser": "^4.4.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.4.1",
+    "resend": "^6.9.4"
   }
 }
