@@ -7,6 +7,7 @@ const mongoose = require("mongoose");
 
 const authRoutes = require("./routes/auth");
 const notesRoutes = require("./routes/notes");
+const goodreadsRoutes = require("./routes/goodreads");
 
 const app = express();
 
@@ -60,6 +61,9 @@ const connectDB = async () => {
   await mongoose.connect(process.env.MONGO_URI);
   isConnected = true;
 };
+
+// Goodreads RSS proxy — registered before DB middleware (no database needed)
+app.use("/api/goodreads", goodreadsRoutes);
 
 // Connect before every request
 app.use(async (req, res, next) => {

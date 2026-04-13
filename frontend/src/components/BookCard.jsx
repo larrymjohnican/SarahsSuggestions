@@ -15,9 +15,9 @@ function BookCard({ book }) {
         <div className="rounded-xl border border-gold/20 bg-white/80 dark:bg-navy-light shadow-md shadow-gold/5 p-5 flex flex-col gap-3 transition-shadow hover:shadow-gold/20 hover:shadow-lg">
             {/* Book Cover */}
             <div className="w-full h-64 rounded-lg overflow-hidden border border-gold/10 bg-parchment/40 dark:bg-navy flex items-center justify-center">
-                {book.coverId ? (
+                {(book.coverUrl || book.coverId) ? (
                     <img
-                        src={`https://covers.openlibrary.org/b/id/${book.coverId}-L.jpg`}
+                        src={book.coverUrl || `https://covers.openlibrary.org/b/id/${book.coverId}-L.jpg`}
                         alt={`${book.title} cover`}
                         className="h-full w-auto object-contain"
                         onError={(e) => { e.target.style.display='none'; e.target.nextSibling.style.display='flex'; }}
