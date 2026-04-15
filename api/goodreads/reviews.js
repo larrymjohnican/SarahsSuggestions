@@ -63,15 +63,15 @@ module.exports = async (req, res) => {
     const items = doc?.rss?.channel?.item ?? [];
 
     const books = items
-      .filter((item) => parseInt(item.user_rating, 10) > 0)
       .map((item) => {
         const fullReview = stripHtml(text(item.user_review));
+        const rating = parseInt(item.user_rating, 10) || 0;
         return {
           id: String(item.book_id || item.link || item.guid),
           title: text(item.title),
           author: text(item.author_name),
-          rating: parseInt(item.user_rating, 10),
-          coverUrl: text(item.book_large_image_url),
+          rating,
+          coverUrl: text(item.book_medium_image_url || item.book_image_url),
           genre: parseGenre(item.user_shelves),
           fullReview,
           shortBlurb: shortBlurb(fullReview),
