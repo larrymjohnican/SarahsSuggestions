@@ -6,6 +6,8 @@ const userSchema = new mongoose.Schema({
   verified: { type: Boolean, default: false },
   verifyToken: { type: String, default: null },
   verifyTokenExpires: { type: Date, default: null },
+  resetToken: { type: String, default: null },
+  resetTokenExpires: { type: Date, default: null },
 });
 
 module.exports = mongoose.model("User", userSchema);

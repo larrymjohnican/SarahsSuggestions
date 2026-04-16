@@ -10,6 +10,8 @@ import Reviews from "./pages/Reviews";
 import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
 import Verify from "./pages/Verify";
+import ForgotPassword from "./pages/ForgotPassword";
+import ResetPassword from "./pages/ResetPassword";
 import ProtectedRoute from "./components/ProtectedRoute";
 
 
@@ -58,6 +60,9 @@ function App() {
                 <Route path="/suggestions" element={<BookSuggestions />} />
                 {/* Email verification route */}
                 <Route path="/verify" element={<Verify />} />
+                {/* Password reset routes */}
+                <Route path="/forgot-password" element={<ForgotPassword />} />
+                <Route path="/reset-password" element={<ResetPassword />} />
                 {/* Catch-all route for undefined routes, shows the NotFound page */}
                 <Route path="*" element={<NotFound />} />
             </Routes>

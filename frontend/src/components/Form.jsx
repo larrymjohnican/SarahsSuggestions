@@ -92,9 +92,16 @@ function Form({ route, method }) {
 
                         {/* Password */}
                         <div>
-                            <label htmlFor="password" className="block text-sm font-sans font-medium text-gray-700 dark:text-parchment mb-1.5">
-                                Password
-                            </label>
+                            <div className="flex justify-between items-baseline mb-1.5">
+                                <label htmlFor="password" className="text-sm font-sans font-medium text-gray-700 dark:text-parchment">
+                                    Password
+                                </label>
+                                {isLogin && (
+                                    <a href="/forgot-password" className="text-xs font-sans text-ember dark:text-gold hover:underline">
+                                        Forgot password?
+                                    </a>
+                                )}
+                            </div>
                             <input
                                 id="password"
                                 type="password"
