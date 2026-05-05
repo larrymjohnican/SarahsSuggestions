@@ -43,10 +43,11 @@ module.exports = async (req, res) => {
   }
 
   try {
-    const feedUrl = `https://www.goodreads.com/review/list_rss/${userId}?shelf=read&sort=date_read&order=d`;
+    const feedUrl = `https://www.goodreads.com/review/list_rss/${userId}?shelf=read&sort=date_read&order=d&per_page=200`;
     const response = await fetch(feedUrl, {
-      headers: { "User-Agent": "SarahsSuggestions/1.0 (book review site)" },
+      headers: { "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36" },
       signal: AbortSignal.timeout(10000),
+      redirect: "follow",
     });
 
     if (!response.ok) throw new Error(`Goodreads returned HTTP ${response.status}`);
