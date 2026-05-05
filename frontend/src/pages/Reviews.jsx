@@ -25,7 +25,7 @@ function Reviews() {
             });
     }, []);
 
-    const genres = ["All", ...new Set(books.map((b) => b.genre))];
+    const genres = ["All", ...new Set(books.map((b) => b.genre).filter((g) => g && g !== "All"))];
 
     const filtered = selectedGenre === "All"
         ? books

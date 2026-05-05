@@ -20,7 +20,7 @@ function shortBlurb(fullText, maxLen = 200) {
   return fullText.slice(0, cut > 0 ? cut : maxLen) + "…";
 }
 
-const SYSTEM_SHELVES = new Set(["read", "to-read", "currently-reading"]);
+const SYSTEM_SHELVES = new Set(["read", "to-read", "currently-reading", "all"]);
 
 function parseGenre(userShelves) {
   const raw = text(userShelves);
