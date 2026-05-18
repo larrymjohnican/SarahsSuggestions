@@ -12,18 +12,21 @@ function BookCard({ book }) {
     const [expanded, setExpanded] = useState(false);
 
     return (
-        <div className="rounded-xl border border-gold/20 bg-white/80 dark:bg-navy-light shadow-md shadow-gold/5 p-5 flex flex-col gap-3 transition-shadow hover:shadow-gold/20 hover:shadow-lg">
+        <div className="rounded-xl border border-gold/20 bg-white/80 dark:bg-navy-light shadow-md shadow-gold/5 p-5 flex flex-col gap-3 transition-all duration-300 hover:-translate-y-1 hover:shadow-gold/20 hover:shadow-xl">
             {/* Book Cover */}
             <div className="w-full h-64 rounded-lg overflow-hidden border border-gold/10 bg-parchment/40 dark:bg-navy flex items-center justify-center">
                 {(book.coverUrl || book.coverId) ? (
                     <img
                         src={book.coverUrl || `https://covers.openlibrary.org/b/id/${book.coverId}-L.jpg`}
                         alt={`${book.title} cover`}
-                        className="h-full w-auto object-contain"
+                        className="h-full w-auto object-contain transition-transform duration-300 hover:scale-105"
                         onError={(e) => { e.target.style.display='none'; e.target.nextSibling.style.display='flex'; }}
                     />
                 ) : null}
-                <div className="text-5xl hidden items-center justify-center w-full h-full">📖</div>
+                <div className={`text-5xl ${(book.coverUrl || book.coverId) ? "hidden" : "flex"} items-center justify-center w-full h-full flex-col gap-2`}>
+                    <span>📖</span>
+                    <span className="text-xs font-sans text-parchment/60 dark:text-parchment/40">No cover</span>
+                </div>
             </div>
 
             {/* Genre Badge */}
