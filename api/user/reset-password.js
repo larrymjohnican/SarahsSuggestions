@@ -1,8 +1,10 @@
 const { connectDB } = require("../_lib/db");
 const User = require("../_lib/models/User");
 const bcrypt = require("bcryptjs");
+const setSecurityHeaders = require("../_lib/securityHeaders");
 
 module.exports = async (req, res) => {
+  setSecurityHeaders(res);
   if (req.method !== "POST") return res.status(405).end();
 
   try {

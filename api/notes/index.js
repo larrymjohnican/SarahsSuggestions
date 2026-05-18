@@ -1,8 +1,10 @@
 const { connectDB } = require("../_lib/db");
 const Note = require("../_lib/models/Note");
 const requireAuth = require("../_lib/requireAuth");
+const setSecurityHeaders = require("../_lib/securityHeaders");
 
 module.exports = async (req, res) => {
+  setSecurityHeaders(res);
   try {
     await connectDB();
 
