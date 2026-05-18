@@ -4,11 +4,14 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const crypto = require("crypto");
 const { Resend } = require("resend");
+const rateLimit = require("../_lib/rateLimit");
 
 const FRONTEND_URL = process.env.FRONTEND_URL || "https://sarahssuggestions.com";
+const limiter = rateLimit(10, 60 * 1000);
 
 module.exports = async (req, res) => {
   if (req.method !== "POST") return res.status(405).end();
+  if (!limiter(req, res)) return;
 
   try {
     await connectDB();
