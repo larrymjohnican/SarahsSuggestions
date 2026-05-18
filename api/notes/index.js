@@ -19,7 +19,8 @@ module.exports = async (req, res) => {
       if (!title || !content) {
         return res.status(400).json({ detail: "title and content are required." });
       }
-      const note = await Note.create({ title, content, author: user.id });
+      const clean = (s) => String(s).replace(/<[^>]*>/g, "").trim();
+      const note = await Note.create({ title: clean(title), content: clean(content), author: user.id });
       return res.status(201).json(note);
     }
 
