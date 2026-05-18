@@ -2,12 +2,17 @@ const { connectDB } = require("../_lib/db");
 const User = require("../_lib/models/User");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
+const rateLimit = require("../_lib/rateLimit");
+const setSecurityHeaders = require("../_lib/securityHeaders");
 
 const ACCESS_EXPIRES = "30m";
 const REFRESH_EXPIRES = "1d";
+const limiter = rateLimit(10, 60 * 1000);
 
 module.exports = async (req, res) => {
+  setSecurityHeaders(res);
   if (req.method !== "POST") return res.status(405).end();
+  if (!limiter(req, res)) return;
 
   try {
     await connectDB();

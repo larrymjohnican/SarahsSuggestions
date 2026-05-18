@@ -1,24 +1,33 @@
-"use client";
-
-import { Card } from "flowbite-react";
-
 function Landing() {
     return (
         <div className="bg-cream dark:bg-navy min-h-screen flex flex-col font-sans text-gray-800 dark:text-cream">
 
             {/* Hero Section */}
-            <section className="flex flex-col py-16 px-4 text-center border-b border-gold/20">
+            <section className="flex flex-col py-20 px-4 text-center border-b border-gold/20 animate-fade-in">
                 <div className="container mx-auto max-w-3xl">
-                    <div className="text-5xl mb-6 select-none" aria-hidden="true">🌙</div>
-                    <h1 className="font-serif text-4xl md:text-5xl text-ember dark:text-gold mb-6 leading-tight">
-                        Welcome to Sarah's Suggestions
+                    <div className="text-6xl mb-6 select-none drop-shadow-sm" aria-hidden="true">🌙</div>
+                    <h1 className="font-serif text-5xl md:text-6xl text-ember dark:text-gold mb-5 leading-tight tracking-tight">
+                        Sarah's Suggestions
                     </h1>
-                    <p className="text-gray-700 dark:text-parchment text-lg leading-relaxed">
-                        I'm Sarah, a lifelong book lover with a passion for discovering and sharing captivating reads across all genres.
-                        Whether you're into fiction, non-fiction, or something in between, my blog is here to guide you to your next great book.
-                        Join me on this literary adventure, and let's explore the world of books together.
+                    <p className="text-gray-600 dark:text-parchment text-lg md:text-xl leading-relaxed max-w-2xl mx-auto mb-8">
+                        A lifelong reader's honest takes — spanning literary fiction, fantasy, and everything in between.
+                        Find your next favourite book.
                     </p>
-                    <div className="mt-8 text-gold/50 text-xl tracking-widest select-none" aria-hidden="true">✦ ✦ ✦</div>
+                    <div className="flex flex-col sm:flex-row gap-3 justify-center">
+                        <a
+                            href="/reviews"
+                            className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-gold text-navy font-semibold text-sm hover:bg-amber-500 transition-all duration-200 hover:shadow-lg hover:shadow-gold/30 hover:-translate-y-0.5"
+                        >
+                            📚 Browse Reviews
+                        </a>
+                        <a
+                            href="/suggestions"
+                            className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl border border-gold/40 text-ember dark:text-gold text-sm font-semibold hover:bg-gold/10 transition-all duration-200 hover:-translate-y-0.5"
+                        >
+                            ✨ Book Suggestions
+                        </a>
+                    </div>
+                    <div className="mt-10 text-gold/40 text-xl tracking-widest select-none" aria-hidden="true">✦ ✦ ✦</div>
                 </div>
             </section>
 

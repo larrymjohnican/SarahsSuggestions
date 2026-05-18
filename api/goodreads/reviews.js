@@ -1,4 +1,5 @@
 const { XMLParser } = require("fast-xml-parser");
+const setSecurityHeaders = require("../_lib/securityHeaders");
 
 const CACHE_TTL_MS = 60 * 60 * 1000;
 let cache = { data: null, timestamp: 0 };
@@ -31,6 +32,7 @@ function parseGenre(userShelves) {
 }
 
 module.exports = async (req, res) => {
+  setSecurityHeaders(res);
   if (req.method !== "GET") return res.status(405).end();
 
   const userId = process.env.GOODREADS_USER_ID;

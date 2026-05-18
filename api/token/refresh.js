@@ -1,8 +1,10 @@
 const jwt = require("jsonwebtoken");
+const setSecurityHeaders = require("../_lib/securityHeaders");
 
 const ACCESS_EXPIRES = "30m";
 
 module.exports = async (req, res) => {
+  setSecurityHeaders(res);
   if (req.method !== "POST") return res.status(405).end();
 
   const { refresh } = req.body;

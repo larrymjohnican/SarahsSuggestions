@@ -1,7 +1,9 @@
 const { connectDB } = require("../_lib/db");
 const User = require("../_lib/models/User");
+const setSecurityHeaders = require("../_lib/securityHeaders");
 
 module.exports = async (req, res) => {
+  setSecurityHeaders(res);
   if (req.method !== "GET") return res.status(405).end();
 
   try {

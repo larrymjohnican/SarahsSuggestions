@@ -2,13 +2,19 @@ const { connectDB } = require("../_lib/db");
 const User = require("../_lib/models/User");
 const crypto = require("crypto");
 const { Resend } = require("resend");
+const rateLimit = require("../_lib/rateLimit");
+const setSecurityHeaders = require("../_lib/securityHeaders");
 
-const FRONTEND_URL = process.env.FRONTEND_URL || "https://sarahssuggestions.com";
+const FRONTEND_URL = process.env.FRONTEND_URL;
+const limiter = rateLimit(10, 60 * 1000);
 
 module.exports = async (req, res) => {
+  setSecurityHeaders(res);
   if (req.method !== "POST") return res.status(405).end();
+  if (!limiter(req, res)) return;
 
   try {
+    if (!FRONTEND_URL) return res.status(500).json({ detail: "Server misconfiguration." });
     await connectDB();
 
     const { email } = req.body;

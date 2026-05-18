@@ -46,8 +46,23 @@ function Reviews() {
                 </div>
 
                 {loading ? (
-                    <div className="text-center py-20 text-gray-400 dark:text-parchment/40 font-sans">
-                        Loading reviews… 🌙
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" aria-label="Loading reviews">
+                        {[1, 2, 3].map((n) => (
+                            <div key={n} className="rounded-xl border border-gold/20 bg-white/80 dark:bg-navy-light shadow-md shadow-gold/5 p-5 flex flex-col gap-3 animate-pulse">
+                                <div className="w-full h-64 rounded-lg bg-parchment/60 dark:bg-navy" />
+                                <div className="h-5 w-20 rounded-full bg-parchment/60 dark:bg-navy" />
+                                <div className="space-y-2">
+                                    <div className="h-4 w-3/4 rounded bg-parchment/60 dark:bg-navy" />
+                                    <div className="h-3 w-1/2 rounded bg-parchment/40 dark:bg-navy/60" />
+                                </div>
+                                <div className="flex gap-1">{[1,2,3,4,5].map((i) => <div key={i} className="h-4 w-4 rounded-full bg-parchment/60 dark:bg-navy" />)}</div>
+                                <div className="space-y-1.5">
+                                    <div className="h-3 rounded bg-parchment/40 dark:bg-navy/60" />
+                                    <div className="h-3 w-5/6 rounded bg-parchment/40 dark:bg-navy/60" />
+                                    <div className="h-3 w-4/6 rounded bg-parchment/40 dark:bg-navy/60" />
+                                </div>
+                            </div>
+                        ))}
                     </div>
                 ) : (
                     <>

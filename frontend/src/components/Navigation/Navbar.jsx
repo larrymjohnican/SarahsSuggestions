@@ -93,7 +93,9 @@ export const CustomNavbar = () => {
             <button
               onClick={() => setMenuOpen(!menuOpen)}
               className="md:hidden flex flex-col justify-center items-center gap-1.5 w-8 h-8"
-              aria-label="Toggle menu"
+              aria-label="Toggle navigation menu"
+              aria-expanded={menuOpen}
+              aria-controls="mobile-menu"
             >
               <span className={`block h-0.5 w-6 bg-ember dark:bg-gold transition-all duration-300 ${menuOpen ? 'rotate-45 translate-y-2' : ''}`} />
               <span className={`block h-0.5 w-6 bg-ember dark:bg-gold transition-all duration-300 ${menuOpen ? 'opacity-0' : ''}`} />
@@ -103,8 +105,11 @@ export const CustomNavbar = () => {
         </div>
 
         {/* Mobile menu */}
-        {menuOpen && (
-          <div className="md:hidden mt-3 pb-2 border-t border-gold/20 pt-3 flex flex-col gap-3 font-sans text-sm">
+        <div
+          id="mobile-menu"
+          className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${menuOpen ? "max-h-64 opacity-100" : "max-h-0 opacity-0"}`}
+        >
+          <div className="mt-3 pb-2 border-t border-gold/20 pt-3 flex flex-col gap-3 font-sans text-sm">
             {links.map(link => (
               <a
                 key={link.href}
@@ -131,7 +136,7 @@ export const CustomNavbar = () => {
               {isLoggedIn ? "Logout" : "Login"}
             </button>
           </div>
-        )}
+        </div>
       </nav>
 
       <CustomContact isOpen={isContactOpen} onClose={() => setIsContactOpen(false)} />
