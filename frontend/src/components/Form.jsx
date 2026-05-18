@@ -13,12 +13,14 @@ function Form({ route, method }) {
     const [password, setPassword] = useState("");
     const [loading, setLoading] = useState(false);
     const [registered, setRegistered] = useState(false);
+    const [formError, setFormError] = useState("");
     const navigate = useNavigate();
 
     const isLogin = method === "login";
 
     const handleSubmit = async (e) => {
         setLoading(true);
+        setFormError("");
         e.preventDefault();
         try {
             const res = await api.post(route, { email, password });
@@ -31,7 +33,7 @@ function Form({ route, method }) {
             }
         } catch (error) {
             const msg = error?.response?.data?.detail || error?.response?.data?.email?.[0] || "Something went wrong. Please try again.";
-            alert(msg);
+            setFormError(msg);
         } finally {
             setLoading(false);
         }
@@ -112,6 +114,13 @@ function Form({ route, method }) {
                                 className="w-full px-4 py-2.5 rounded-lg border border-gold/30 bg-white dark:bg-navy text-gray-800 dark:text-cream font-sans text-sm focus:outline-none focus:ring-2 focus:ring-gold/40 placeholder:text-gray-400 dark:placeholder:text-parchment/40"
                             />
                         </div>
+
+                        {/* Inline error */}
+                        {formError && (
+                            <p role="alert" className="text-sm font-sans text-red-500 dark:text-red-400 -mt-1 px-1">
+                                {formError}
+                            </p>
+                        )}
 
                         {/* Submit */}
                         <button
