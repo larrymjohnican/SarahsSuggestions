@@ -27,7 +27,7 @@ const books = [
         author: "Sarah J. Maas",
         genre: "Fantasy Romance",
         rating: 5,
-        coverId: 8738585,
+        coverId: 15103057,
         isSuggestion: true,
         shortBlurb: "If Fourth Wing is your entry point into fantasy romance, ACOTAR is your next stop. Fae, magic, and a romance that evolves across the whole series in the most satisfying way.",
         fullReview: "A Court of Thorns and Roses is the book that turned me into a fantasy romance reader for life. Feyre is a hunter who ends up in a world of Fae, and Sarah J. Maas builds that world with breathtaking detail and beauty. The romance is slow, layered, and genuinely surprising in its direction. The first book is a complete story on its own, but the series truly hits its stride in ACOMAF — which is, without exaggeration, one of the best fantasy books I've ever read. Start here and don't look back."
