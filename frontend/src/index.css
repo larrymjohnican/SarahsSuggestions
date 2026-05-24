@@ -12,6 +12,39 @@ html, body {
     height: 100%;
 }
 
+/* Gold shimmer — sweeps a soft white glint left-to-right on primary CTA buttons */
+@media (prefers-reduced-motion: no-preference) {
+  @keyframes shimmer {
+    0%   { transform: translateX(-100%) skewX(-15deg); }
+    100% { transform: translateX(200%)  skewX(-15deg); }
+  }
+}
+
+.btn-shimmer {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-shimmer::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.28) 50%,
+    transparent 100%
+  );
+  transform: translateX(-100%) skewX(-15deg);
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .btn-shimmer:hover::after {
+    animation: shimmer 0.55s ease-out forwards;
+  }
+}
+
 @layer base {
     /* Light mode: warm parchment */
     body {

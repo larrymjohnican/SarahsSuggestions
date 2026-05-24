@@ -16,13 +16,13 @@ function Landing() {
                     <div className="flex flex-col sm:flex-row gap-3 justify-center">
                         <a
                             href="/reviews"
-                            className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-gold text-navy font-semibold text-sm hover:bg-amber-500 transition-all duration-200 hover:shadow-lg hover:shadow-gold/30 hover:-translate-y-0.5"
+                            className="btn-shimmer inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-gold text-navy font-semibold text-sm hover:bg-amber-500 transition-all duration-200 hover:shadow-lg hover:shadow-gold/30 hover:-translate-y-0.5"
                         >
                             📚 Browse Reviews
                         </a>
                         <a
                             href="/suggestions"
-                            className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl border border-gold/40 text-ember dark:text-gold text-sm font-semibold hover:bg-gold/10 transition-all duration-200 hover:-translate-y-0.5"
+                            className="btn-shimmer inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl border border-gold/40 text-ember dark:text-gold text-sm font-semibold hover:bg-gold/10 transition-all duration-200 hover:-translate-y-0.5"
                         >
                             ✨ Book Suggestions
                         </a>
