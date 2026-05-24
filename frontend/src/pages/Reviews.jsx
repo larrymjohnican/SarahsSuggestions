@@ -37,7 +37,7 @@ function Reviews() {
 
                 {/* Header */}
                 <div className="text-center mb-10">
-                    <div className="text-4xl mb-3 select-none" aria-hidden="true">🌙</div>
+                    <div className="text-4xl mb-3 select-none motion-safe:animate-moon-float" aria-hidden="true">🌙</div>
                     <h1 className="font-serif text-4xl text-ember dark:text-gold mb-3">Book Reviews</h1>
                     <p className="text-gray-600 dark:text-parchment font-sans max-w-xl mx-auto">
                         Honest thoughts from a lifelong reader. Every book here has earned its place on my shelf.

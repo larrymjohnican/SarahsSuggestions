@@ -15,7 +15,7 @@ function ResetPassword() {
         return (
             <div className="min-h-screen bg-cream dark:bg-navy flex items-center justify-center px-4">
                 <div className="w-full max-w-sm text-center">
-                    <div className="text-5xl mb-4">🌙</div>
+                    <div className="text-5xl mb-4 select-none motion-safe:animate-moon-float" aria-hidden="true">🌙</div>
                     <h1 className="font-serif text-2xl text-ember dark:text-gold mb-3">Invalid Link</h1>
                     <p className="text-sm font-sans text-gray-600 dark:text-parchment/70">
                         This reset link is missing or invalid.
@@ -50,7 +50,7 @@ function ResetPassword() {
         <div className="min-h-screen bg-cream dark:bg-navy flex items-center justify-center px-4">
             <div className="w-full max-w-sm">
                 <div className="text-center mb-8">
-                    <div className="text-5xl mb-3 select-none" aria-hidden="true">🌙</div>
+                    <div className="text-5xl mb-3 select-none motion-safe:animate-moon-float" aria-hidden="true">🌙</div>
                     <h1 className="font-serif text-3xl text-ember dark:text-gold">New Password</h1>
                     <p className="text-gray-500 dark:text-parchment/60 text-sm font-sans mt-1">
                         Choose a new password for your account

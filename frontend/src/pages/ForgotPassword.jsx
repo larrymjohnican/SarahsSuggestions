@@ -41,7 +41,7 @@ function ForgotPassword() {
         <div className="min-h-screen bg-cream dark:bg-navy flex items-center justify-center px-4">
             <div className="w-full max-w-sm">
                 <div className="text-center mb-8">
-                    <div className="text-5xl mb-3 select-none" aria-hidden="true">🌙</div>
+                    <div className="text-5xl mb-3 select-none motion-safe:animate-moon-float" aria-hidden="true">🌙</div>
                     <h1 className="font-serif text-3xl text-ember dark:text-gold">Forgot Password</h1>
                     <p className="text-gray-500 dark:text-parchment/60 text-sm font-sans mt-1">
                         Enter your email and we'll send a reset link

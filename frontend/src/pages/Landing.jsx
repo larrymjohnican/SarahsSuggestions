@@ -5,7 +5,7 @@ function Landing() {
             {/* Hero Section */}
             <section className="flex flex-col py-20 px-4 text-center border-b border-gold/20 animate-fade-in">
                 <div className="container mx-auto max-w-3xl">
-                    <div className="text-6xl mb-6 select-none drop-shadow-sm" aria-hidden="true">🌙</div>
+                    <div className="text-6xl mb-6 select-none drop-shadow-sm motion-safe:animate-moon-float" aria-hidden="true">🌙</div>
                     <h1 className="font-serif text-5xl md:text-6xl text-ember dark:text-gold mb-5 leading-tight tracking-tight">
                         Sarah's Suggestions
                     </h1>

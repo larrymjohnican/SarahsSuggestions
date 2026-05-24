@@ -63,7 +63,7 @@ function Form({ route, method }) {
 
                 {/* Header */}
                 <div className="text-center mb-8">
-                    <div className="text-5xl mb-3 select-none" aria-hidden="true">🌙</div>
+                    <div className="text-5xl mb-3 select-none motion-safe:animate-moon-float" aria-hidden="true">🌙</div>
                     <h1 className="font-serif text-3xl text-ember dark:text-gold">
                         {isLogin ? "Welcome Back" : "Create Account"}
                     </h1>
