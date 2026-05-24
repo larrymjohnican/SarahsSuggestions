@@ -1,6 +1,6 @@
 // Import necessary libraries and components
 import React from "react";
-import { Routes, Route, Navigate } from "react-router-dom";
+import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import ReadingProgress from "./components/ReadingProgress";
 // Import custom page components
 import BookSuggestions from "./pages/BookSuggestions";
@@ -34,9 +34,12 @@ function RegisterAndLogout() {
 
 // Main application component
 function App() {
+    const location = useLocation();
     return (
         <>
             <ReadingProgress />
+            {/* Keyed on pathname so each route change triggers the fade-in */}
+            <div key={location.pathname} className="motion-safe:animate-page-fade">
             {/* Define the application's routes */}
             <Routes>
                 {/* Public landing page as homepage */}
@@ -68,6 +71,7 @@ function App() {
                 {/* Catch-all route for undefined routes, shows the NotFound page */}
                 <Route path="*" element={<NotFound />} />
             </Routes>
+            </div>
         </>
     );
 }
