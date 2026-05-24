@@ -1,4 +1,7 @@
+import useScrollReveal from "../hooks/useScrollReveal";
+
 function Landing() {
+    const [aboutRef, aboutRevealed] = useScrollReveal(0.15);
     return (
         <div className="bg-cream dark:bg-navy min-h-screen flex flex-col font-sans text-gray-800 dark:text-cream">
 
@@ -33,7 +36,14 @@ function Landing() {
 
             {/* About Section */}
             <section className="flex-1 py-12 px-4 bg-parchment/30 dark:bg-navy-light/50 border-t border-gold/20">
-                <div className="container mx-auto max-w-3xl">
+                <div
+                    ref={aboutRef}
+                    className="container mx-auto max-w-3xl transition-all duration-700 ease-out"
+                    style={{
+                        opacity: aboutRevealed ? 1 : 0,
+                        transform: aboutRevealed ? 'translateY(0)' : 'translateY(20px)',
+                    }}
+                >
                     <h2 className="font-serif text-2xl text-ember dark:text-gold mb-6 flex items-center gap-3">
                         <span aria-hidden="true">✦</span> About Us
                     </h2>
