@@ -1,6 +1,7 @@
 // Import necessary libraries and components
 import React from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
+import ReadingProgress from "./components/ReadingProgress";
 // Import custom page components
 import BookSuggestions from "./pages/BookSuggestions";
 import Login from "./pages/Login";
@@ -35,6 +36,7 @@ function RegisterAndLogout() {
 function App() {
     return (
         <>
+            <ReadingProgress />
             {/* Define the application's routes */}
             <Routes>
                 {/* Public landing page as homepage */}
