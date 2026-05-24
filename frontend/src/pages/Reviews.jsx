@@ -76,8 +76,14 @@ function Reviews() {
                         {/* Grid */}
                         {filtered.length > 0 ? (
                             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                                {filtered.map((book) => (
-                                    <BookCard key={book.id} book={book} />
+                                {filtered.map((book, idx) => (
+                                    <div
+                                        key={book.id}
+                                        className="motion-safe:animate-card-enter"
+                                        style={{ animationDelay: `${idx * 75}ms` }}
+                                    >
+                                        <BookCard book={book} />
+                                    </div>
                                 ))}
                             </div>
                         ) : (

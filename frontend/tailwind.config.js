@@ -44,9 +44,17 @@ module.exports = {
       },
       keyframes: {
         'fade-in': { from: { opacity: '0', transform: 'translateY(12px)' }, to: { opacity: '1', transform: 'translateY(0)' } },
+        'card-enter': { '0%': { opacity: '0', transform: 'translateY(24px)' }, '100%': { opacity: '1', transform: 'translateY(0)' } },
+        'moon-float': { '0%, 100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-6px)' } },
+        'star-pop': { '0%': { transform: 'scale(0)' }, '70%': { transform: 'scale(1.25)' }, '100%': { transform: 'scale(1)' } },
+        'page-fade': { from: { opacity: '0' }, to: { opacity: '1' } },
       },
       animation: {
         'fade-in': 'fade-in 0.6s ease-out both',
+        'card-enter': 'card-enter 0.45s ease-out both',
+        'moon-float': 'moon-float 3s ease-in-out infinite',
+        'star-pop': 'star-pop 0.3s ease-out both',
+        'page-fade': 'page-fade 0.25s ease-out both',
       },
     }
   }
