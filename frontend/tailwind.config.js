@@ -48,13 +48,18 @@ module.exports = {
         'moon-float': { '0%, 100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-6px)' } },
         'star-pop': { '0%': { transform: 'scale(0)' }, '70%': { transform: 'scale(1.25)' }, '100%': { transform: 'scale(1)' } },
         'page-fade': { from: { opacity: '0' }, to: { opacity: '1' } },
+        'sparkle-twinkle': {
+          '0%, 100%': { opacity: '0', transform: 'scale(0.5)' },
+          '50%': { opacity: '1', transform: 'scale(1.2)' },
+        },
       },
       animation: {
         'fade-in': 'fade-in 0.6s ease-out both',
         'card-enter': 'card-enter 0.45s ease-out both',
-        'moon-float': 'moon-float 3s ease-in-out infinite',
+        'moon-float': 'moon-float 2s ease-in-out infinite',
         'star-pop': 'star-pop 0.3s ease-out both',
         'page-fade': 'page-fade 0.25s ease-out both',
+        'sparkle-twinkle': 'sparkle-twinkle 1.4s ease-in-out infinite',
       },
     }
   }
